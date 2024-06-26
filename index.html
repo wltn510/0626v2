@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mainpage2</title>
+    <link rel="stylesheet" href="main2.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="nav">
+            <div class="logo">
+                <a href="#">
+                    <img src="img/navlogo.png" alt="">
+                </a>
+            </div>
+            <a href="#">
+                <p><span>바로주문</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    메뉴&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    매장&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    이벤트&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    마이미피
+                </p>
+            </a>
+            <div class="menu">
+                <a href="#">
+                    <img src="img/ico_cart.png" alt="">
+                    <img src="img/menu.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="contents">
+            <div class="main">
+                <img id="main-image" src="img/main.jpg" alt="">
+                <button class="slide-button prev" onclick="prevImage()">&#10094;</button>
+                <button class="slide-button next" onclick="nextImage()">&#10095;</button>
+            </div>
+            <div class="event">
+                <a href="event.html"><img src="img/box1.png" alt=""></a>
+                <img src="img/box2.png" alt="">
+                <a href="order.html"><img src="img/box3.png" alt=""></a>
+            </div>
+            <div class="notice">
+                <img src="img/box4.png" alt="">
+            </div>
+            <div class="footer">
+                <img src="img/footer.png" alt="">
+            </div>
+        </div><!-- contents -->
+    </div><!-- wrap -->
+
+    <script>
+        let currentImageIndex = 0;
+        const images = ['img/main.jpg', 'img/main2.jpg', 'img/main3.jpg'];
+
+        function changeImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            document.getElementById('main-image').src = images[currentImageIndex];
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            document.getElementById('main-image').src = images[currentImageIndex];
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            document.getElementById('main-image').src = images[currentImageIndex];
+        }
+
+        setInterval(changeImage, 3000); // 3초마다 이미지 변경
+    </script>
+</body>
+</html>
